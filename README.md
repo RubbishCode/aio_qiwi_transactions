@@ -7,8 +7,6 @@ pip install requests-async
 
 
 
-# using:
-
 
 
 
