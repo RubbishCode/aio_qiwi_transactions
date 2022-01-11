@@ -2,15 +2,8 @@
 lib for working with qiwi for telegram async bots
 
 # install:
-# win10:
-pip install git+https://github.com/RubbishCode/aio_qiwi_transactions.git#egg=aio_qiwi_transactions
 
-
-
-
-# linux or mac:
-pip3 install git+https://github.com/RubbishCode/aio_qiwi_transactions.git#egg=aio_qiwi_transactions
-
+#pip install git+https://github.com/RubbishCode/aio_qiwi_transactions.git#egg=aio_qiwi_transactions
 
 
 
