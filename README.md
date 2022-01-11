@@ -3,8 +3,8 @@ lib for working with qiwi for telegram async bots
 
 # install:
 
-# pip install requests-async
-# 
+pip install requests-async
+
 
 
 # using:
