@@ -9,6 +9,11 @@ lib for working with qiwi for telegram async bots
 # using:
 
 
+Импортируем класс
+
+    from aio_qiwi_transaction.aio_qiwi_transaction import AioQiwiTransactions
+
+
 Создаем класс AioQiwiTransactions
 
     qiwi = AioQiwiTransactions(
