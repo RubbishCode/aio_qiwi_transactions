@@ -9,7 +9,7 @@ setup(
     author='Rubbish Code',
     author_email='rubbishcode@gmail.com',
     install_requires=['requests-async'],
-    packages=['aio_qiwi_transactions.py'],
+    packages=['aio_qiwi_transactions'],
     classifiers=[
         "Programming Language :: Python :: 3.7",
         "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
