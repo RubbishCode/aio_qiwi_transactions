@@ -3,6 +3,14 @@ import string
 import random
 
 
+async def key_generator(size=8, chars=string.ascii_uppercase + string.digits):
+        """creating a random private key"""
+
+        return ''.join(random.choice(chars) for _ in range(size))
+    
+    
+    
+
 class AioQiwiTransactions:
     """
     class for composing and processing asynchronous qiwi transactions
@@ -14,13 +22,6 @@ class AioQiwiTransactions:
     def __init__(self, phone: str, token: str):
         self.phone = phone
         self.token = token
-
-
-
-    async def key_generator(size=8, chars=string.ascii_uppercase + string.digits):
-        """creating a random private key"""
-
-        return ''.join(random.choice(chars) for _ in range(size))
 
 
 
