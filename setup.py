@@ -8,7 +8,7 @@ setup(
     url='https://github.com/RubbishCode/aio_qiwi_transactions',
     author='Rubbish Code',
     author_email='rubbishcode@gmail.com',
-    py_modules=['requests-async'],
+    install_requires=['requests-async'],
     packages=find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3.7",
