@@ -8,11 +8,10 @@ lib for working with qiwi for telegram async bots
 
 # using:
 
-<code> 
+<code>
+    
 from aiogram import Bot, Dispatcher, executor, types
 from aio_qiwi_transactions import AioQiwiTransactions
-
-
 
 
 #создаем класс AioQiwiTransactions
@@ -24,8 +23,6 @@ qiwi = AioQiwiTransactions(
 
 bot = Bot(token='*******:************')
 dp = Dispatcher(bot)
-
-
 
 
 @dp.message_handler(commands=['start'], state='*')
@@ -44,9 +41,7 @@ async def start(message: types.Message):
     keyboard.add(types.InlineKeyboardButton(text='✅ Подтвердить оплату', callback_data=f'checkUserPay{individual_key}'))
 
     await bot.send_message(chat_id=message.chat.id, text='Hello!\nPay it - 10 RUB', reply_markup=keyboard)
-
-
-
+    
 
 @dp.callback_query_handler(state='*')
 async def callback(call: types.CallbackQuery):
@@ -61,9 +56,7 @@ async def callback(call: types.CallbackQuery):
         if amount == 10:
             await bot.send_message(chat_id=call.from_user.id, text=f'thk for {amount} rub')
 
-
-
-
+    
 if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)
 
