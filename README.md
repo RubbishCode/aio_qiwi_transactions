@@ -13,7 +13,7 @@ lib for working with qiwi for telegram async bots
 
     qiwi = AioQiwiTransactions(
         phone='+79**********',
-        token='***'
+        token='***' # (https://qiwi.com/api)
         )
 
 
