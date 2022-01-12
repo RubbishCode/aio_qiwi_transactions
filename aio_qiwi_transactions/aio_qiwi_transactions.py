@@ -30,7 +30,7 @@ class AioQiwiTransactions:
         identification of the payment by this key
         """
 
-        individual_key = await self.key_generator()
+        individual_key = await key_generator()
 
         href = f'https://qiwi.com/payment/form/99?extra%5B%27account%27%5D={self.phone}&comment={individual_key}&amount={amount}'
 
