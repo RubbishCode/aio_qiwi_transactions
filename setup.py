@@ -9,6 +9,6 @@ setup(
     author='Rubbish Code',
     author_email='rubbishcode@gmail.com',
     install_requires=['requests-async'],
-    packages=['aio_qiwi_transactions']
+    packages=find_packages()
 
 )
