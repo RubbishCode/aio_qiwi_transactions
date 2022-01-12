@@ -8,6 +8,7 @@ lib for working with qiwi for telegram async bots
 
 # using:
 
+<code> 
 from aiogram import Bot, Dispatcher, executor, types
 from aio_qiwi_transactions import AioQiwiTransactions
 
@@ -67,5 +68,5 @@ if __name__ == '__main__':
     executor.start_polling(dp, skip_updates=True)
 
 
-
+</code>
 
