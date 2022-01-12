@@ -1,4 +1,4 @@
-from setuptools import setup, find_packages
+from setuptools import setup
 
 
 setup(
@@ -9,7 +9,7 @@ setup(
     author='Rubbish Code',
     author_email='rubbishcode@gmail.com',
     install_requires=['requests-async'],
-    packages=find_packages(),
+    packages=['aio_qiwi_transactions'],
     classifiers=[
         "Programming Language :: Python :: 3.7",
         "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
