@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 
 setup(
@@ -9,6 +9,6 @@ setup(
     author='Rubbish Code',
     author_email='rubbishcode@gmail.com',
     install_requires=['requests-async'],
-    packages=['aio_qiwi_transactions'],
+    packages=find_packages('src', exclude=['aio_qiwi_transactions'])
 
 )
