@@ -11,7 +11,7 @@ lib for working with qiwi for telegram async bots
 
 Импортируем класс
 
-    from aio_qiwi_transaction.aio_qiwi_transaction import AioQiwiTransactions
+    from aio_qiwi_transactions.aio_qiwi_transactions import AioQiwiTransactions
 
 
 Создаем класс AioQiwiTransactions
