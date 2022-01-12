@@ -1,4 +1,4 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 
 setup(
@@ -9,5 +9,11 @@ setup(
     author='Rubbish Code',
     author_email='rubbishcode@gmail.com',
     py_modules=['requests-async'],
+    packages=find_packages(),
+    install_requires=requirements,
+    classifiers=[
+        "Programming Language :: Python :: 3.7",
+        "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+    ],
 
 )
