@@ -9,7 +9,7 @@ lib for working with qiwi for telegram async bots
 # using:
 
 
-#создаем класс AioQiwiTransactions
+Создаем класс AioQiwiTransactions
 
     qiwi = AioQiwiTransactions(
         phone='+79**********',
@@ -17,7 +17,7 @@ lib for working with qiwi for telegram async bots
         )
 
 
-#выставляем счет на 10руб
+Выставляем счет на 10руб
 
     key_qiwi = await qiwi.creating_invoice(amount=10)
 
@@ -25,8 +25,8 @@ lib for working with qiwi for telegram async bots
     individual_key = key_qiwi['individual_key'] # индивидуальный код платежа
 
 
-#вернется False если нет платежа, сумма платежа - если платеж был совершен
-#проверяем платеж по индивидуальному ключу плательщика
+Вернется False если нет платежа, сумма платежа - если платеж был совершен
+Проверяем платеж по индивидуальному ключу плательщика
 
     amount = await qiwi.check_payments(individual_key=individual_key)
 
