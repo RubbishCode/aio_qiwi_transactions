@@ -25,8 +25,7 @@ lib for working with qiwi for telegram async bots
     individual_key = key_qiwi['individual_key'] # индивидуальный код платежа
 
 
-Вернется False если нет платежа, сумма платежа - если платеж был совершен
-Проверяем платеж по индивидуальному ключу плательщика
+Проверяем платеж по индивидуальному ключу плательщика. Вернется False если нет платежа, сумма платежа - если платеж был совершен
 
     amount = await qiwi.check_payments(individual_key=individual_key)
 
