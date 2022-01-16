@@ -54,7 +54,7 @@ class AioQiwiTransactions:
                 f'https://edge.qiwi.com/payment-history/v2/persons/{self.phone}/payments', 
                 params={'rows': 50}, timeout=500, ssl=False) as req:
                 
-                print(req.json())
+                print(req.text)
 
                 pays_user_key = [((req.json())['data'][x]['comment']) for x in range(len((req.json())['data']))]
                 sum_pays_user = [float(((req.json())['data'][x]['sum']['amount'])) for x in range(len((req.json())['data']))]
