@@ -8,7 +8,7 @@ setup(
     url='https://github.com/RubbishCode/aio_qiwi_transactions',
     author='Rubbish Code',
     author_email='rubbishcode@gmail.com',
-    install_requires=['aiohttp'],
+    install_requires=['aiohttp-requests'],
     packages=find_packages()
 
 )
