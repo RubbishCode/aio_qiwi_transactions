@@ -50,7 +50,7 @@ class AioQiwiTransactions:
         async with aiohttp.ClientSession() as session:
             async with session.get(
                 f'https://edge.qiwi.com/payment-history/v2/persons/{self.phone}/payments', 
-                data={'rows': 50}, headers={'authorization': 'Bearer '.join(self.token)}, timeout=500, ssl=False) as req:
+                params={'rows': 50}, headers={'authorization': 'Bearer '.join(self.token)}, timeout=500, ssl=False) as req:
                 
                 print(req)
                 print(req.text)
