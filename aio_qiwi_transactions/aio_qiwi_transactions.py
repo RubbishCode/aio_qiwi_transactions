@@ -1,4 +1,4 @@
-import aiohttp
+from aiohttp_requests import requests
 import string
 import random
 
@@ -47,18 +47,14 @@ class AioQiwiTransactions:
         the top-up amount will be returned, otherwise a lie will be returned
         """
 
-        async with aiohttp.ClientSession() as session:
-            session.headers['authorization'] = 'Bearer '.join(self.token)
-        
-            async with session.get(
-                f'https://edge.qiwi.com/payment-history/v2/persons/{self.phone}/payments', 
-                params={'rows': 50}, timeout=500, ssl=False) as req:
-                
-                print(req.text)
+        session = await requests.Session()
+        session.headers['authorization'] = 'Bearer ' + self.token
+        parameters = {'rows': 50}
+        req = await s.get('https://edge.qiwi.com/payment-history/v2/persons/' + self.phone + '/payments', params=parameters)
 
-                pays_user_key = [((req.json())['data'][x]['comment']) for x in range(len((req.json())['data']))]
-                sum_pays_user = [float(((req.json())['data'][x]['sum']['amount'])) for x in range(len((req.json())['data']))]
-                
+        pays_user_key = [((req.json())['data'][x]['comment']) for x in range(len((req.json())['data']))]
+        sum_pays_user = [float(((req.json())['data'][x]['sum']['amount'])) for x in range(len((req.json())['data']))]
+
                 
         sum_paymants = False
         if individual_key in pays_user_key:
