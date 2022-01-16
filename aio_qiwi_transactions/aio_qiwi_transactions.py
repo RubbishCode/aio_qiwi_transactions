@@ -1,4 +1,4 @@
-from aiohttp_requests import requests
+import requests_async as requests
 import string
 import random
 
