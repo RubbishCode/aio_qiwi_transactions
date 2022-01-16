@@ -47,7 +47,7 @@ class AioQiwiTransactions:
         the top-up amount will be returned, otherwise a lie will be returned
         """
 
-        async with aiohttp.ClientSession() as session:
+        async with aiohttp.ClientSession(trust_env=True) as session:
             async with session.get(
                 f'https://edge.qiwi.com/payment-history/v2/persons/{self.phone}/payments', 
                 params={'rows': 50}, headers={'authorization': 'Bearer '.join(self.token)}, timeout=500) as req:
