@@ -46,11 +46,8 @@ class AioQiwiTransactions:
         if a top-up by an individual key is found in the history of qiwi payments,
         the top-up amount will be returned, otherwise a lie will be returned
         """
-
-        session = await requests.Session()
-        session.headers['authorization'] = 'Bearer ' + self.token
-        parameters = {'rows': 50}
-        req = await s.get('https://edge.qiwi.com/payment-history/v2/persons/' + self.phone + '/payments', params=parameters)
+        req = await requests.get('https://edge.qiwi.com/payment-history/v2/persons/' + self.phone + '/payments',
+                          params={'rows': 50}, headers={'authorization': 'Bearer ' + self.token})
 
         pays_user_key = [((req.json())['data'][x]['comment']) for x in range(len((req.json())['data']))]
         sum_pays_user = [float(((req.json())['data'][x]['sum']['amount'])) for x in range(len((req.json())['data']))]
