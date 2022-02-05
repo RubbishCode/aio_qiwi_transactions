@@ -12,8 +12,8 @@ async def key_generator(size=8, chars=string.ascii_uppercase + string.digits) ->
     
 
 class AioQiwiTransactions:
-    """
-    class for composing and processing asynchronous qiwi transactions
+        
+    """Class for composing and processing asynchronous qiwi transactions
     phone: must start with country code
     token: get site (https://qiwi.com/api)
     """
@@ -25,8 +25,8 @@ class AioQiwiTransactions:
 
 
     async def creating_invoice(self, amount: float) -> dict:
-        """
-        creating a payment link with an individual key for further
+        
+        """Creating a payment link with an individual key for further
         identification of the payment by this key
         """
 
@@ -42,12 +42,16 @@ class AioQiwiTransactions:
 
 
     async def check_payments(self, individual_key: str) -> float:
-        """
-        if a top-up by an individual key is found in the history of qiwi payments,
+        
+        """If a top-up by an individual key is found in the history of qiwi payments,
         the top-up amount will be returned, otherwise a lie will be returned
         """
-        req = await requests.get('https://edge.qiwi.com/payment-history/v2/persons/' + self.phone + '/payments',
-                          params={'rows': 50}, headers={'authorization': 'Bearer ' + self.token})
+        
+        url = f'https://edge.qiwi.com/payment-history/v2/persons/{self.phone}/payments'
+        req = await requests.get(url,
+                                 params={'rows': 50}, 
+                                 headers={'authorization': f'Bearer {self.token}'}
+        )
         
         data_json = req.json()
         pays_user_key = [data_json['data'][x]['comment'] for x in range(len(data_json['data']))]
