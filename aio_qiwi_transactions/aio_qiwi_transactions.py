@@ -3,7 +3,7 @@ import string
 import random
 
 
-async def key_generator(size=8, chars=string.ascii_uppercase + string.digits):
+async def key_generator(size=8, chars=string.ascii_uppercase + string.digits) -> str:
         """creating a random private key"""
 
         return ''.join(random.choice(chars) for _ in range(size))
@@ -24,7 +24,7 @@ class AioQiwiTransactions:
 
 
 
-    async def creating_invoice(self, amount: float):
+    async def creating_invoice(self, amount: float) -> dict:
         """
         creating a payment link with an individual key for further
         identification of the payment by this key
@@ -41,16 +41,17 @@ class AioQiwiTransactions:
     
 
 
-    async def check_payments(self, individual_key: str):
+    async def check_payments(self, individual_key: str) -> float:
         """
         if a top-up by an individual key is found in the history of qiwi payments,
         the top-up amount will be returned, otherwise a lie will be returned
         """
         req = await requests.get('https://edge.qiwi.com/payment-history/v2/persons/' + self.phone + '/payments',
                           params={'rows': 50}, headers={'authorization': 'Bearer ' + self.token})
-
-        pays_user_key = [((req.json())['data'][x]['comment']) for x in range(len((req.json())['data']))]
-        sum_pays_user = [float(((req.json())['data'][x]['sum']['amount'])) for x in range(len((req.json())['data']))]
+        
+        data_json = req.json()
+        pays_user_key = [data_json['data'][x]['comment'] for x in range(len(data_json['data']))]
+        sum_pays_user = [float((data_json['data'][x]['sum']['amount'])) for x in range(len(data_json['data']))]
 
                 
         sum_paymants = False
