@@ -4,7 +4,7 @@ import random
 
 
 async def key_generator(size=8, chars=string.ascii_uppercase + string.digits) -> str:
-        """creating a random private key"""
+        """Creating a random private key"""
 
         return ''.join(random.choice(chars) for _ in range(size))
     
